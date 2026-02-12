@@ -1,89 +1,129 @@
-# 💸 App de Organização de Finanças Pessoais com Vibe Coding
+Product Requirements Document (PRD) - Tutu
+1. Visão do Produto
+O Tutu é um assistente financeiro pessoal "calm tech". Diferente de apps tradicionais focados em planilhas frias, o Tutu foca na prosperidade e na redução da ansiedade financeira. Ele utiliza metáforas de jardinagem (plantar, regar, florescer) e uma interface fluida para tornar o ato de cuidar do dinheiro prazeroso e sem julgamentos.
+2. Público Alvo
+Brasileiros que desejam organizar suas finanças mas sentem ansiedade ao abrir apps bancários.
+Pessoas endividadas que precisam de estratégias claras de amortização.
+Usuários que preferem interações visuais e conversacionais a tabelas estáticas.
+3. Stack Tecnológico
+Frontend: React (v19), TypeScript.
+Estilização: Tailwind CSS (com configurações estendidas para bordas arredondadas extremas e animações customizadas).
+Ícones: Lucide React.
+Gráficos: Recharts.
+IA/Backend: Google Gemini API (@google/genai) via gemini-2.5-flash-image (OCR) e gemini-3-flash-preview (Texto).
+Persistência: LocalStorage (MVP/Client-side only).
+4. Funcionalidades Principais
+4.1. Experiência de Entrada (Onboarding)
+Splash Screen: Animação complexa ("Gênese") onde o logo nasce de partículas de luz. Mensagens de carregamento contextuais e tranquilizadoras. Transição fluida (fade-out/zoom) para o login.
+Login: Simulação de biometria e design emocional ("Prosperidade real").
+4.2. Dashboard Principal
+Resumo Visual: Card principal com saldo, receitas e despesas. Alerta visual de saúde financeira (cores Mint vs Rose).
+Insights IA: Card "Dica do Tutu" que analisa o saldo e dívidas para dar conselhos contextualizados.
+FAB (Floating Action Button): Botão expandível para "Digitar Manualmente" ou "Escanear/Subir Arquivo".
+4.3. Gestão de Dívidas (Diferencial)
+Cadastro Detalhado: Credor, Juros (Simples ou Composto/Price), Prazo, Data Base.
+Lista Inteligente: Cálculo automático do comprometimento mensal e saldo devedor total.
+Simulador de Amortização: Ferramenta que projeta a dívida no tempo (até 120 meses) e permite simular pagamentos extras para reduzir prazo ou valor da parcela.
+4.4. Inteligência Artificial (Gemini)
+OCR de Documentos: Capacidade de ler Imagens e PDFs de recibos/faturas. Extrai: Local, Valor, Data, Categoria e sugere lançamentos.
+Chat Conversacional: Interface de chat para tirar dúvidas ou lançar gastos via texto natural.
+Modal de Confirmação (Draft): Interface para o usuário validar os dados lidos pela IA antes de salvar, com detecção de duplicidade.
+4.5. Relatórios e Exportação
+Relatório Mensal: Gráficos de área (fluxo diário) e pizza (categorias). Cálculo de "Taxa de Poupança".
+Exportação Pro: Geração de arquivos CSV formatados para o padrão brasileiro (PT-BR), divididos por Receitas, Despesas, Dívidas e Resumo (ideal para enviar a assessores/contadores).
+5. Diretrizes de UI/UX (Motion Design)
+Glassmorphism: Uso intenso de transparências, blur e bordas brancas sutis.
+Geometria: Bordas extremamente arredondadas (rounded-[2.5rem]).
+Animações: Tudo deve ter entrada suave (animate-fade-in-up), elementos flutuantes (animate-float) e feedbacks de clique (active:scale-95).
+Cores:
+Brand Indigo: #6366f1 (Foco, Info)
+Brand Mint: #10b981 (Receita, Positivo, Broto)
+Brand Slate: #0f172a (Texto, Base, Sofisticação)
+Background: Mesh Gradients animados.
+2. O Prompt Mestre (Para Geração do App)
+Copie e cole este prompt em uma nova sessão para instruir uma IA a construir o Tutu exatamente como ele é agora.
+code
+Markdown
+Atue como um Engenheiro Frontend Sênior e Especialista em UX/Motion Design. Sua tarefa é construir o "Tutu", um gerenciador financeiro pessoal web (React/TypeScript) focado em design emocional, inteligência artificial e gestão de dívidas.
+<img width="504" height="911" alt="image" src="https://github.com/user-attachments/assets/e286be44-d05a-4e56-99a3-7fcf1da3063b" />
+<img width="498" height="914" alt="image" src="https://github.com/user-attachments/assets/42c89d5b-84e7-49e0-bd7f-d9465764f273" />
+<img width="510" height="922" alt="image" src="https://github.com/user-attachments/assets/ae26c4d1-6f2b-4d2a-bb25-24efc6bcaa27" />
+<img width="525" height="874" alt="image" src="https://github.com/user-attachments/assets/5ba5e55f-7058-44c5-a3c0-ec6e68b7d33f" />
+<img width="515" height="922" alt="image" src="https://github.com/user-attachments/assets/18e25cdc-8fac-4c1c-9265-6138fb0c6602" />
 
-Aprenda a **criar soluções com IA** de forma criativa, guiando ferramentas como o **Copilot** e o **Lovable** com uma comunicação simples e natural. O foco é desenvolver o conceito de um **App de Organização de Finanças Pessoais**, mas, acima de tudo, aprender o **jeito Vibe de programar com IA**.
 
-## ✨ O que é Vibe Coding
 
-**Vibe Coding** é uma forma leve e criativa de desenvolver com IA, baseada em **conversas naturais e bem estruturadas**. Você não precisa escrever código linha por linha. Em vez disso, aprende a **guiar a IA** descrevendo suas ideias de forma clara, com **intenção e contexto**. Em outras palavras:
+### 1. Configuração do Projeto
+- **Framework:** React + Vite (Use ES Modules).
+- **Linguagem:** TypeScript.
+- **Estilos:** Tailwind CSS (via CDN ou configuração local). Configure o tema para usar a fonte 'Inter' e cores personalizadas (Brand Indigo: #6366f1, Brand Mint: #10b981, Brand Slate: #0f172a).
+- **Bibliotecas:** `lucide-react` (ícones), `recharts` (gráficos), `@google/genai` (IA).
+- **Armazenamento:** LocalStorage (para persistência de dados no navegador).
 
-> Você mostra a vibe da sua ideia e a IA transforma em solução (ou em um caminho para ela).
+### 2. Requisitos Visuais (Motion Design & Glassmorphism)
+O app deve ser visualmente deslumbrante.
+- Use um background com "Mesh Gradients" animados (bolhas de cor que se movem).
+- Use o conceito de "Glassmorphism" (fundo branco translúcido, blur, bordas finas).
+- Use bordas muito arredondadas (ex: `rounded-[2.5rem]`).
+- Adicione animações de entrada (`fade-in-up`) em todos os modais e listas.
+- Crie uma **Splash Screen** cinematográfica: O logo (um broto/sprout) deve "nascer" de uma luz, com partículas e mensagens de carregamento ("Semeando prosperidade...", "Regando sonhos...").
 
-## 🎯 Desafio
+### 3. Funcionalidades Obrigatórias
 
-Problema: Muitas pessoas não conseguem manter um controle financeiro porque os aplicativos exigem muita entrada de dados manual, e a criação de orçamentos é vista como algo tedioso. 
+#### A. Gemini AI Service (`geminiService.ts`)
+- Implemente uma função `sendMessageToTutu` que aceita texto e arquivos (Base64).
+- Use o modelo `gemini-2.5-flash-image` para imagens/PDFs (OCR) e `gemini-3-flash-preview` para texto.
+- **System Prompt:** O Tutu deve extrair dados (Data, Valor, Local, Categoria, Forma de Pagamento) e retornar um JSON estrito.
+- Deve suportar leitura de Notas Fiscais e Recibos.
 
-Precisamos de uma solução que permita **controlar as finanças por meio de uma conversa simples**, com **agentes de IA** capazes de criar **planos de economia personalizados e automatizados**. Você deve utilizar as ideias de **Vibe Coding** e **MVP (Produto Mínimo Viável)** para desenvolver o **conceito de um aplicativo** que resolva o problema citado.
+#### B. Dashboard (`Dashboard.tsx`)
+- Card principal gigante com o Saldo Atual.
+- Cards menores para Total de Dívidas e Categorias principais.
+- Card "Insight": Uma frase motivacional baseada no saldo atual.
+- **FAB (Botão Flutuante):** No canto inferior direito, que expande para: "Digitar Manual" e "Escanear/Subir Arquivo".
 
-> [!IMPORTANT]
-> Você **não precisa construir o código**! O foco está em **usar a IA como sua parceira criativa**, transformando boas ideias e prompts em conceitos funcionais que simulam um produto real.
+#### C. Fluxo de Adição (`AddFlow.tsx`)
+- Um wizard passo-a-passo (Tipo -> Valor -> Descrição -> Detalhes).
+- Suporte para Receitas, Despesas e **Dívidas**.
+- **Calculadora de Dívidas:** Ao adicionar uma dívida, solicite: Valor Total, Juros (%), Prazo (meses) e Tipo de Juros (Simples ou Composto). Calcule a parcela automaticamente.
 
-## 🪄 Etapas do Desafio
+#### D. Gestão de Dívidas (`DebtList.tsx` & `DebtEvolutionModal.tsx`)
+- Liste as dívidas com cards visuais mostrando a parcela e o saldo devedor.
+- Crie um **Simulador de Evolução**:
+    - Mostre um gráfico ou lista projetando o saldo devedor mês a mês até a quitação.
+    - Permita que o usuário simule uma "Amortização Extra" (pagar um valor a mais) e escolha entre "Reduzir Prazo" ou "Reduzir Parcela".
 
-### 1. Saber o que Pedir é a Chave! Otimize seus Prompts!
+#### E. Chat (`App.tsx` - Tab Chat)
+- Interface tipo WhatsApp/ChatGPT.
+- O usuário pode enviar mensagens de texto ou fazer upload de arquivos pelo ícone de clipe/câmera.
+- As respostas da IA devem ser processadas e, se contiverem transações, abrir o Modal de Confirmação.
 
-Antes de pedir para a IA "criar um app", é importante definir com clareza o que você quer construir e por quê. Para isso, você vai criar um **PRD (Product Requirements Document)** simplificado, uma especificação que serve como _briefing_ para a IA entender sua ideia.
+#### F. Relatórios (`MonthlyReportModal.tsx` & `ExportModal.tsx`)
+- Exiba gráficos de Área (fluxo diário) e Pizza (categorias) usando Recharts.
+- Calcule a "Taxa de Poupança" do mês.
+- Permita exportar os dados para CSV (formatado para Excel PT-BR).
 
-Um bom PRD deve descrever o problema, quem será beneficiado, as principais funcionalidades e o que você espera que a IA entregue. Use o modelo abaixo como ponto de partida e adapte conforme o seu estilo:
+### 4. Estrutura de Arquivos Recomendada
+- `index.html` (com Tailwind CDN e Google Fonts)
+- `App.tsx` (Orquestrador, roteamento por abas, lógica de estado global)
+- `types.ts` (Interfaces para Transaction, Debt, AIResponse)
+- `services/geminiService.ts` (Integração com Google GenAI)
+- `components/`
+    - `SplashScreen.tsx` (Animação de entrada)
+    - `LoginScreen.tsx` (Tela de login fake com biometria)
+    - `Dashboard.tsx`
+    - `AddFlow.tsx`
+    - `DebtList.tsx`
+    - `DebtEvolutionModal.tsx`
+    - `DraftConfirmationModal.tsx` (Para validar dados da IA)
+    - `MonthlyReportModal.tsx`
+    - `ExportModal.tsx`
 
-```txt
-# Contexto
-Quero criar um aplicativo de Organização de Finanças Pessoais que funcione por meio de conversas com o usuário.  
-A ideia é facilitar o controle financeiro de forma simples e natural, sem formulários manuais ou planilhas complexas.
+### 5. Regras de Negócio Importantes
+- Gastos são valores negativos, Receitas positivos.
+- Dívidas têm status (Ativa, Paga, Atrasada) e prioridade.
+- O app deve detectar duplicidade ao importar via IA (comparar valor, data e descrição).
+- Use `Intl.NumberFormat` para formatar moeda em BRL (R$).
 
-# Problema
-Muitas pessoas desistem de controlar seus gastos porque os apps atuais exigem muita entrada manual e pouca personalização.  
-Quero resolver isso com uma experiência de conversa e recomendações automáticas de economia.
-
-# Público-Alvo
-Pessoas que querem começar a organizar suas finanças de forma prática e sem complicação, principalmente iniciantes.
-
-# Funcionalidades-Chave
-1. Registrar gastos via chat em linguagem natural.  
-2. Classificar automaticamente as transações.  
-3. Definir e acompanhar metas financeiras.  
-4. Receber dicas de economia do “Agente Financeiro”.  
-5. Visualizar relatórios simples e personalizados.
-
-# Entregável da IA
-Gerar um plano de MVP com as principais telas, recursos necessários e um esboço de validação inicial.  
-Usar tom educativo e linguagem acessível, em português.
-```
-
-Depois de preencher o modelo, use o Copilot Web para revisar e melhorar o seu prompt antes de ir ao Lovable. A ideia é lapidar o texto até que ele fique claro, direto e reflita exatamente a sua intenção.
-
-> [!TIP]
-> Pense no PRD/Prompt como “o briefing que a IA precisa para entender sua vibe”. Portanto, quanto mais claro e intencional for o texto, mais próximas do ideal serão as respostas da IA.
-
-### 2. Explorando o Lovable na Prática
-
-Com seu PRD pronto e revisado, é hora de colocar a IA em ação. Abra o Lovable, cole seu prompt completo e peça o plano inicial do MVP do seu aplicativo. Como o plano gratuito limita você a 5 interações por dia, seja estratégico:
-- Faça perguntas diretas e construtivas, como “crie o fluxo de telas com base nas funcionalidades listadas” ou “gere uma versão resumida do plano de MVP”;
-- Priorize clareza nas instruções para aproveitar ao máximo cada resposta;
-
-Durante essa etapa, você pode orientar a IA para três entregas principais:
-1. Agente Financeiro: defina o comportamento e o tom de voz de um consultor financeiro pessoal, alinhado ao público e objetivo do app.
-2. Fluxo de Telas: peça à IA para gerar o fluxo conceitual de telas com base nas funcionalidades descritas no PRD, simulando a interação por conversa.
-3. Plano de MVP: solicite um resumo das 5 funcionalidades principais, dos recursos necessários e um plano de validação inicial (como medir se o app cumpre seu propósito).
-
-> [!TIP]
-> Se preferir, você pode fazer tudo com o **Copilot**. O importante é exercitar a habilidade de transformar intenções em instruções claras e testar os limites da IA como parceira criativa.
-
-### 3. Entregando o Desafio na DIO
-
-Finalize seu projeto criando um **repositório no GitHub** (pode ser um **fork** deste).  
-No README do seu repositório, inclua:
-
-- Seu **prompt final** (PRD);  
-- Prints ou pequenos vídeos das interações com a IA;  
-- Um resumo do que o seu **App de Finanças Pessoais** faz;  
-- Uma breve **reflexão sobre o processo**:
-  - O que funcionou bem?  
-  - O que não funcionou como o esperado?  
-  - O que aprendeu sobre conversar com IAs?
-
-> [!TIP]
-> Publique seu repositório e compartilhe o link na plataforma da DIO! Sua entrega é a prova de que você domina o raciocínio de Vibe Coding, mesmo sem escrever uma única linha de código.
-
-## 💬 Conclusão
-
-Vibe Coding é sobre clareza, curiosidade e criatividade, não sobre perfeição técnica. O verdadeiro objetivo aqui é aprender a pensar junto com a IA, transformando ideias em conceitos reais e enxergando a tecnologia como uma extensão do seu raciocínio criativo. Cada interação é um experimento, quanto mais clara for sua intenção, mais surpreendente será o resultado.
+Criar o Tutu foi uma jornada que provou que a IA funciona melhor quando guiada por uma visão conceitual forte, e não apenas por instruções técnicas isoladas. O que funcionou excepcionalmente bem foi o refinamento prévio do PRD e das regras de negócio utilizando Copilot e GPT; essa etapa de "arquitetura" permitiu que, ao gerarmos o código, a IA já entendesse a "alma" do projeto (as metáforas de jardinagem, o tom de voz calmo e a estética glassmorphism), resultando em uma primeira versão visualmente muito mais madura e coesa do que o habitual.
+Por outro lado, o que não funcionou como esperado foram as alucinações técnicas específicas: a IA frequentemente tropeça em versões de bibliotecas que mudam rápido (como o SDK do Google Gemini ou imports de ícones), exigindo intervenção humana para corrigir erros de build que a lógica pura não resolve. O maior aprendizado sobre conversar com a IA foi descobrir que ela responde incrivelmente bem a adjetivos e sentimentos no prompt. Ao pedir uma tela "maravilhosa", "cinematográfica" ou "sem julgamentos", a IA foi capaz de traduzir conceitos subjetivos em código concreto (animações de partículas, textos acolhedores), mostrando que o segredo de um bom prompt está em fornecer tanto a especificação técnica quanto a direção artística e emocional.
